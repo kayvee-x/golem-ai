@@ -114,14 +114,14 @@ interface types {
     }
 
     /// Audio effects and device optimization
-    flags audio-effects {
-        telephone-quality,
-        headphone-optimized,
-        speaker-optimized,
-        car-audio-optimized,
-        noise-reduction,
-        bass-boost,
-        treble-boost,
+    record audio-effects {
+        telephone-quality: bool,
+        headphone-optimized: bool,
+        speaker-optimized: bool,
+        car-audio-optimized: bool,
+        noise-reduction: bool,
+        bass-boost: bool,
+        treble-boost: bool,
     }
 
     /// Input text with metadata
@@ -170,13 +170,11 @@ interface types {
         ssml-mark,
         viseme,
     }
-
-
 }
 
 /// Voice discovery and management
 interface voices {
-    use types.{tts-error, language-code, voice-gender, voice-quality};
+    use types.{tts-error, language-code, voice-gender, voice-quality, audio-format, voice-settings};
 
     /// Represents a voice that can be used for speech synthesis
     resource voice {
@@ -195,10 +193,10 @@ interface voices {
         /// Voice capabilities
         supports-ssml: func() -> bool;
         get-sample-rates: func() -> list<u32>;
-        get-supported-formats: func() -> list<types.audio-format>;
+        get-supported-formats: func() -> list<audio-format>;
         
         /// Voice management (may return unsupported-operation)
-        update-settings: func(settings: types.voice-settings) -> result<_, tts-error>;
+        update-settings: func(settings: voice-settings) -> result<_, tts-error>;
         delete: func() -> result<_, tts-error>;
         clone: func() -> result<voice, tts-error>;
         
@@ -398,7 +396,7 @@ interface streaming {
 
 /// Advanced TTS features and voice manipulation
 interface advanced {
-    use types.{tts-error, audio-config, language-code};
+    use types.{tts-error, audio-config, language-code, voice-gender, synthesis-metadata};
     use voices.{voice};
 
     /// Voice cloning and creation (removed async)
@@ -421,7 +419,7 @@ interface advanced {
     ) -> result<voice, tts-error>;
 
     record voice-design-params {
-        gender: types.voice-gender,
+        gender: voice-gender,
         age-category: age-category,
         accent: string,
         personality-traits: list<string>,
@@ -505,6 +503,14 @@ interface advanced {
         output-location: string,
         total-duration: f32,
         chapter-durations: option<list<f32>>,
-        metadata: types.synthesis-metadata,
+        metadata: synthesis-metadata,
     }
+}
+
+world tts-library {
+    export types;
+    export voices;
+    export synthesis;
+    export streaming;
+    export advanced;
 }

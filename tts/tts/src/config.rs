@@ -1,10 +1,10 @@
+use crate::TtsError;
 use std::env;
 use std::ffi::OsStr;
-use crate::bindings::types::TtsError;
 
 /// Creates a standardized error when a config key is missing
 fn missing_key_error(key: &str) -> TtsError {
-    TtsError::invalid_configuration(format!("Missing configuration key: {key}"))
+    TtsError::InvalidConfiguration(format!("Missing configuration key: {key}"))
 }
 
 /// Gets a required config value, or returns an error via a fail/succeed flow
@@ -32,10 +32,7 @@ pub fn get_optional_config(key: impl AsRef<OsStr>) -> Option<String> {
 }
 
 /// Gets a config value or falls back to a provided default
-pub fn get_config_with_default(
-    key: impl AsRef<OsStr>,
-    default: impl Into<String>,
-) -> String {
+pub fn get_config_with_default(key: impl AsRef<OsStr>, default: impl Into<String>) -> String {
     env::var(key).unwrap_or_else(|_| default.into())
 }
 

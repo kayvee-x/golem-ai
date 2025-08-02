@@ -2,14 +2,11 @@ mod client;
 mod conversions;
 
 use crate::client::ElevenLabsClient;
-use crate::conversions::{voice_settings_to_api_params, api_response_to_tts_result};
+use crate::conversions::{api_response_to_tts_result, voice_settings_to_api_params};
 
 use golem_rust::wasm_rpc::Pollable;
-use golem_tts::config::with_config_keys;
+use golem_tts::config::with_config_key;
 use golem_tts::durability::{DurableTts, ExtendedGuestTts};
-use golem_tts::golem::tts::core::{
-    GuestTts, GuestTtsStream, TtsError, TtsOptions, TtsResult, TtsStream,
-};
 use log::trace;
 use std::cell::{Cell, RefCell};
 
@@ -34,8 +31,9 @@ impl ElevenLabsComponent {
     const VOICE_ID_ENV_VAR: &'static str = "ELEVENLABS_VOICE_ID";
 
     fn create_client() -> Result<ElevenLabsClient, TtsError> {
-        with_config_keys(
+        with_config_key(
             &[Self::API_KEY_ENV_VAR, Self::VOICE_ID_ENV_VAR],
+            |x| x,
             |keys| {
                 if keys.len() < 2 || keys[0].is_empty() || keys[1].is_empty() {
                     return Err(TtsError::Internal("Missing ElevenLabs credentials".into()));

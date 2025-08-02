@@ -28,7 +28,7 @@ reqwest = { workspace = true }
 chrono = { version = "0.4", features = ["serde"] }
 
 [package.metadata.component]
-package = "golem:tts-algolia"
+package = "golem:tts-elevenlabs"
 
 [package.metadata.component.bindings]
 generate_unused_types = true
