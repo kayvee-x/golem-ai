@@ -1,0 +1,6 @@
+components:
+  tts:
+    source: ./target/wasm32-wasi/release/tts.wasm
+    env:
+      ELEVENLABS_API_KEY: "api-key"
+      ELEVENLABS_VOICE_ID: "voice-id"
