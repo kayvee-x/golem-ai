@@ -1520,6 +1520,80 @@ dependencies = [
 ]
 
 [[package]]
+name = "golem-tts"
+version = "0.0.0"
+dependencies = [
+ "golem-rust",
+ "log",
+ "mime",
+ "nom",
+ "reqwest",
+ "thiserror 2.0.12",
+ "wasi-logger",
+ "wit-bindgen 0.40.0",
+]
+
+[[package]]
+name = "golem-tts-algolia"
+version = "0.0.0"
+dependencies = [
+ "base64",
+ "chrono",
+ "golem-rust",
+ "golem-tts",
+ "log",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "wit-bindgen-rt 0.40.0",
+]
+
+[[package]]
+name = "golem-tts-awspolly"
+version = "0.0.0"
+dependencies = [
+ "base64",
+ "chrono",
+ "golem-rust",
+ "golem-tts",
+ "log",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "wit-bindgen-rt 0.40.0",
+]
+
+[[package]]
+name = "golem-tts-deepgram"
+version = "0.0.0"
+dependencies = [
+ "base64",
+ "chrono",
+ "golem-rust",
+ "golem-tts",
+ "log",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "wit-bindgen-rt 0.40.0",
+]
+
+[[package]]
+name = "golem-tts-googlecloud"
+version = "0.0.0"
+dependencies = [
+ "base64",
+ "chrono",
+ "golem-rust",
+ "golem-tts",
+ "log",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "wit-bindgen-rt 0.40.0",
+]
+
+[[package]]
 name = "golem-video"
 version = "0.0.0"
 dependencies = [

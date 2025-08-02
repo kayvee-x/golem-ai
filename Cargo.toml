@@ -26,6 +26,11 @@ members = [
     "video/veo",
     "video/stability",
     "exec/exec",
+    "tts/tts",
+    "tts/awspolly",
+    "tts/deepgram",
+    "tts/elevenlabs",
+    "tts/googlecloud",
 ]
 
 [profile.release]
