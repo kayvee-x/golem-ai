@@ -1535,21 +1535,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "golem-tts-algolia"
-version = "0.0.0"
-dependencies = [
- "base64",
- "chrono",
- "golem-rust",
- "golem-tts",
- "log",
- "reqwest",
- "serde",
- "serde_json",
- "wit-bindgen-rt 0.40.0",
-]
-
-[[package]]
 name = "golem-tts-awspolly"
 version = "0.0.0"
 dependencies = [
@@ -1566,6 +1551,21 @@ dependencies = [
 
 [[package]]
 name = "golem-tts-deepgram"
+version = "0.0.0"
+dependencies = [
+ "base64",
+ "chrono",
+ "golem-rust",
+ "golem-tts",
+ "log",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "wit-bindgen-rt 0.40.0",
+]
+
+[[package]]
+name = "golem-tts-elevenlabs"
 version = "0.0.0"
 dependencies = [
  "base64",

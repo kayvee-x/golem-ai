@@ -68,12 +68,6 @@ Deepgram: DEEPGRAM_API_KEY, DEEPGRAM_API_VERSION
 
 
 
-
-ELEVENLABS_API_KEY
-sk_821ec51cb656dce9654f912a1d1da9542c16a02edf2656ac
-
-
-
 package golem:tts@1.0.0;
 
 /// Core types and error handling for universal text-to-speech

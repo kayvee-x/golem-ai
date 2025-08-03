@@ -1,11 +1,11 @@
 [package]
-name = "golem-tts-algolia"
+name = "golem-tts-elevenlabs"
 version = "0.0.0"
 edition = "2021"
 license = "Apache-2.0"
 homepage = "https://golem.cloud"
 repository = "https://github.com/golemcloud/golem-llm"
-description = "WebAssembly component for working with algolia APIs, with special support for Golem Cloud"
+description = "WebAssembly component for working with elevenlabs APIs, with special support for Golem Cloud"
 
 [lib]
 path = "src/lib.rs"
@@ -34,7 +34,6 @@ package = "golem:tts-elevenlabs"
 generate_unused_types = true
 
 [package.metadata.component.bindings.with]
-"golem:tts/core@1.0.0" = "golem_tts::golem::tts::core"
 "golem:tts/types@1.0.0" = "golem_tts::golem::tts::types"
 
 
