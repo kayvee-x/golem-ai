@@ -55,18 +55,6 @@ pub fn get_optional_config_keys(keys: &[&str]) -> Vec<String> {
         .collect()
 }
 
-// ---- Typed/Domain-Specific Config Getters ---- //
-
-/// API key used to authenticate with ElevenLabs
-pub fn get_elevenlabs_api_key() -> Result<String, TtsError> {
-    validate_config_key("ELEVENLABS_API_KEY")
-}
-
-/// Base URL for ElevenLabs API (can be overridden for self-hosting or testing)
-pub fn get_elevenlabs_base_url() -> String {
-    get_config_with_default("ELEVENLABS_BASE_URL", "https://api.elevenlabs.io")
-}
-
 /// Number of retries for failed TTS calls
 pub fn get_max_retries() -> u32 {
     get_config_with_default("TTS_MAX_RETRIES", "3")
